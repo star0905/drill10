@@ -20,10 +20,9 @@ class ball:
         self.image = load_image('ball21x21')
     def draw(self):
         self.image.draw(400, 30)
-        self.y += 5
-
-    def update(self): pass
-
+        
+    def update(self): 
+         self.y += 5
                                
 class Boy:
     def __init__(self):
@@ -47,6 +46,7 @@ def reset_world():
 
     world.append(grass)
     team = [Boy() for i in range(11)]
+    team = [ball() for i in range(20)]
     world += team
 
 
