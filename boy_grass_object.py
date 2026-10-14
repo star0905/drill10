@@ -3,8 +3,8 @@ import random
 
 # Game object class here
 
-speed = random(5, 20)
-size = random(100, 400)
+speed = random.randint(5, 20)
+size = random.randint(100, 400)
 
 class Grass:
     def __init__(self):
@@ -15,17 +15,17 @@ class Grass:
 
     def update(self): pass
 
-class ball:
-    def __init__(self):
-        global size
-        self.x, self.y = random.randint(100, 700), 90
-        self.image = load_image('ball21x21')
-        self.frame = 0
+class Ball:
+    def __init__(self, image_name, x):
+        self.image = load_image(image_name)
+        self.r = self.image.w // 2          
+        self.x, self.y = x, 50 + self.r
+        self.vx, self.vy = 0.0, 0.0
     def draw(self):
-        self.image.clip_draw(self.frame * 100, 0, size.x, size.y, self.x, self.y)
+            self.image.draw(self.x, self.y)
         
     def update(self): 
-         self.y += 5
+         self.y += speed
          if self.y>= 400:
              self.y=390
                                
@@ -51,8 +51,8 @@ def reset_world():
 
     world.append(grass)
     team = [Boy() for i in range(11)]
-    team = [ball() for i in range(20)]
-    world += team
+    team_2 = [Ball() for i in range(20)]
+    world += team, team_2
 
 
 def update_world():
