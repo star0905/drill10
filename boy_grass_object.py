@@ -18,11 +18,11 @@ class Grass:
 class Ball:
     def __init__(self):
         self.image = load_image('ball21x21.png')
-        self.r = self.image.w // 2          
+        
         self.x, self.y = random.randint(100, 700), 50 + self.r
-        self.vx, self.vy = 0.0, 0.0
+        
     def draw(self):
-            self.image.draw(self.x, self.y)
+            self.image.clip_draw(0, 0, size, size, self.x, self.y)
         
     def update(self): 
          self.y += speed
@@ -56,7 +56,8 @@ def reset_world():
 
 
 def update_world():
-    for o in world: o.update()
+    for o in world: 
+        o.update()
 
 def render_world():
  clear_canvas()
