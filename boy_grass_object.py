@@ -3,7 +3,7 @@ import random
 
 # Game object class here
 
-
+i = 0
 size = random.randint(100, 400)
 speed = random.randint(5, 20)
 
@@ -18,19 +18,21 @@ class Grass:
 
 class Ball:
     def __init__(self):
-        self.image = load_image('ball21x21.png')
-        
-        
+        self.image = load_image('ball21x21.png') 
+        global size, speed
+        size = random.randint(100, 400)
+        speed = random.randint(5, 20)
         self.x, self.y = random.randint(100, 700), 120
         
-    def draw(self):
-            self.image.clip_draw(0, 0, size, size, self.x, self.y)
+    def draw(self):     
+
+        self.image.clip_draw(0, 0, size, size, self.x, self.y)
         
     def update(self): 
-         
-         if self.y<= 600:
+
+        if self.y<= 600:
             self.y += speed
-         else :
+        else :
           self.y =590
                                
 class Boy:
@@ -49,6 +51,7 @@ class Boy:
         self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
 
 def reset_world():
+    global i
     global running
     global world
     global size
