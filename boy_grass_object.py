@@ -3,7 +3,7 @@ import random
 
 # Game object class here
 
-speed = randint(5, 20)
+speed = random.randint(5, 20)
 
 class Grass:
     def __init__(self):
