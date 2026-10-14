@@ -11,6 +11,11 @@ class Grass:
         self.image.draw(400, 30)
 
     def update(self): pass
+
+class ball:
+    def __init__(self):
+        self.image = load_image('ball21x21')
+        
                                
 class Boy:
     def __init__(self):
