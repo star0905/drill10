@@ -3,6 +3,8 @@ import random
 
 # Game object class here
 
+speed = randint(5, 20)
+
 class Grass:
     def __init__(self):
         self.image = load_image('grass.png')
@@ -18,6 +20,7 @@ class ball:
         self.image = load_image('ball21x21')
     def draw(self):
         self.image.draw(400, 30)
+        self.y += 5
 
     def update(self): pass
 
