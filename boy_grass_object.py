@@ -18,22 +18,22 @@ class Grass:
 
 class Ball:
     def __init__(self):
-        self.image = load_image('ball21x21.png') 
-        global size, speed
-        size = random.randint(100, 400)
-        speed = random.randint(5, 20)
-        self.x, self.y = random.randint(100, 700), 120
+     self.image = load_image('ball21x21.png') 
+     global size, speed
+     size = random.randint(100, 400)
+     speed = random.randint(5, 20)
+
+     self.x, self.y = random.randint(100, 700), 120
         
     def draw(self):     
 
         self.image.clip_draw(0, 0, size, size, self.x, self.y)
         
     def update(self): 
-
         if self.y<= 600:
             self.y += speed
         else :
-          self.y =590
+          self.y =590 // 출렁거림 구현용
                                
 class Boy:
     def __init__(self):
@@ -64,7 +64,7 @@ def reset_world():
     team = [Boy() for i in range(11)]
     team2 = [Ball() for i in range(20)]
     world += team
-    world += team2
+    world += team2 
 
 
 def update_world():
@@ -73,6 +73,7 @@ def update_world():
 
 def render_world():
  clear_canvas()
+
  for o in world:
   o.draw()
  update_canvas()
